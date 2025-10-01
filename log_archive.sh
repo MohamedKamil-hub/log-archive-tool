@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export EMAIL_PASS="tu_password_aqui_o_leer_de_env"
 LOG_DIR=$1
 if [ -z "$LOG_DIR" ]; then
 	echo "Usage: log-archive <log-directory>"
@@ -20,4 +20,4 @@ else
 
 fi
 
-
+python3 send_email.py "$LOG_DIR" "$TIMESTAMP" "./archives/logs_archive_$TIMESTAMP.tar.gz" "destinatario@gmail.com"
